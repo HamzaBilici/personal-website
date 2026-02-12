@@ -1,5 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector, type UseDispatch } from "react-redux";
+import { changeLanguage, changeTheme } from "../store/actions/headerAction";
 
 const toggleCheckedLabelStyle: string =
   "peer-checked:translate-x-8  peer-checked:bg-custom-yellow";
@@ -10,52 +12,34 @@ const fontSetup: string =
 const transition: string = "transition-all duration-600";
 
 const Header = () => {
-  const themeKey: string = "theme";
-  const languageKey: string = "language";
-
-  const [theme, setTheme] = useState<boolean>((): boolean => {
-    const storedTheme = localStorage.getItem(themeKey);
-    if (storedTheme === null) {
-      localStorage.setItem(themeKey, JSON.stringify(true));
-      return true;
-    } else {
-      return JSON.parse(storedTheme);
-    }
-  });
-
-  const [language, setLanguage] = useState<string>((): string => {
-    const storedLanguage = localStorage.getItem(languageKey);
-    if (storedLanguage === null) {
-      localStorage.setItem(languageKey, JSON.stringify("TR"));
-      return "TR";
-    } else {
-      return JSON.parse(storedLanguage);
-    }
-  });
+  const dispatch = useDispatch();
+  const language = useSelector((state: any) => state.header.language);
+  const theme = useSelector((state: any) => state.header.theme);
 
   const handleThemeChange = (
     event: React.ChangeEvent<HTMLInputElement>,
   ): void => {
-    const { checked } = event.target;
-    setTheme(checked);
-    localStorage.setItem(themeKey, JSON.stringify(checked));
+    dispatch(changeTheme());
   };
 
   const handleLanguageChange = (): void => {
-    if (language === "TR") {
-      localStorage.setItem(languageKey, JSON.stringify("EN"));
-      setLanguage("EN");
-    } else if (language === "EN") {
-      localStorage.setItem(languageKey, JSON.stringify("TR"));
-      setLanguage("TR");
-    }
+    dispatch(changeLanguage());
 
-    axios.get("https://reqres.in/api/workintech", {
-     /* headers: {
-        "x-api-key": "reqres-free-v1",
-      },*/
-    }).then((res)=>console.log(res))
-    .catch((err)=>console.log(err))
+    const payload = {
+      name: "Camera",
+      price: 199,
+    };
+
+    try {
+      // 2. axios.post(url, data, config) yapısını kullanıyoruz
+      axios
+        .post("https://reqres.in/api/workintech", payload, {
+          headers: { "x-api-key": "reqres_fdb427e28b7f424e81dc5a3b7f94b91f" },
+        })
+        .then((res) => console.log(res.data));
+    } catch (error) {
+      console.error("Veri çekilirken hata oluştu:", error);
+    }
   };
 
   return (
@@ -64,7 +48,7 @@ const Header = () => {
         <div className="relative inline-block w-14 h-6">
           <input
             onChange={handleThemeChange}
-            checked={theme}
+            checked={theme === "LIGHT"}
             id="switch-component"
             type="checkbox"
             className="peer appearance-none w-14 h-6 bg-custom-dark-gray rounded-full checked:bg-custom-purple cursor-pointer transition-colors duration-300"
@@ -81,12 +65,12 @@ const Header = () => {
           </label>
         </div>
         <label htmlFor="switch-component" className={`${fontSetup}`}>
-          DARKMODE {theme}
+          {theme === "LIGHT" ? "DARK" : "LIGHT"} MODE
         </label>
       </div>
       <span className={`${fontSetup} content-center`}>|</span>
       <button onClick={handleLanguageChange} className={`${fontSetup}`}>
-        <span className="text-custom-purple">TÜRKÇE</span>
+        <span className="text-custom-purple">{language}</span>
         `YE GEÇ
       </button>
     </section>
