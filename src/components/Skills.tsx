@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { localData } from "../assets/data";
 
 const Skills = () => {
+const theme = useSelector((state: any) => state.theme.theme);
   const language = useSelector((state: any) => state.language.language);
   const { title, list } = useSelector(
     (state: any) =>
@@ -12,10 +13,10 @@ const Skills = () => {
   const skillsElements = list.map((item: any, index: any) => {
     return (
       <div key={index} className="max-w-75 flex flex-col gap-7">
-        <header className="font-inter font-medium text-3xl leading-7 tracking-normal text-indigo-700">
+        <header className={`font-inter font-medium text-3xl leading-7 tracking-normal ${theme==='light'?" text-indigo-700":"text-custom-darkmode-pink"}`}>
           {item.name || ""}
         </header>
-        <p className="font-inter font-normal text-xs leading-4 tracking-normal text-gray-500">
+        <p className={`font-inter font-normal text-xs leading-4 tracking-normal  ${theme==='light'?" text-gray-500":" text-white"}`}>
           {item.desc || ""}
         </p>
       </div>
@@ -24,7 +25,7 @@ const Skills = () => {
   return (
     <>
       <section className="skills-section mt-31 flex flex-col gap-8">
-        <h3 className="font-inter font-semibold text-5xl leading-12 tracking-normal text-[#1F2937]">
+        <h3 className={`font-inter font-semibold text-5xl leading-12 tracking-normal   ${theme==='light'?" text-[#1F2937]":" text-[#AEBCCF]"}`}>
           {title || ""}
         </h3>
         <div className="flex flex-row flex-wrap gap-30 justify-center ">

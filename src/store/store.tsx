@@ -1,11 +1,13 @@
 import { configureStore, type Store } from "@reduxjs/toolkit";
 import { pullFromLocalstorage } from "./actions/headerAction";
-import counterSlice from './reducers/language-reducer'
+import languageSlice from './reducers/language-reducer'
+import themeSlice from './reducers/theme-reducer'
 
 const myStore: Store = configureStore({
   reducer: {
    //header:headerReducer,
-   language:counterSlice
+   theme:themeSlice,
+   language:languageSlice
   },
 });
 

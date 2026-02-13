@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getTextDataByLanguage } from "../actions/language-action";
+import { toast } from "react-toastify";
 
 interface LanguageState {
   language: string;
@@ -11,7 +12,7 @@ const initialState = {
   languageData: {},
 } satisfies LanguageState as LanguageState;
 
-const counterSlice = createSlice({
+const languageSlice = createSlice({
   name: "language",
   initialState,
   reducers: {
@@ -19,9 +20,10 @@ const counterSlice = createSlice({
       const targetLanguage = state.language === "en" ? "tr" : "en";
       console.log(targetLanguage);
       state.language = targetLanguage;
+      if( toast(targetLanguage==='tr'?"Türkçeye geçiliyor":"Switching to English"))
       localStorage.setItem("language", targetLanguage);
     },
-    firstLandOnPage(state) {
+    firstLandOnPageLanguage(state) {
       localStorage.setItem("language", state.language);
     },
   },
@@ -32,5 +34,5 @@ const counterSlice = createSlice({
   },
 });
 
-export const { changeLanguage, firstLandOnPage } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { changeLanguage, firstLandOnPageLanguage } = languageSlice.actions;
+export default languageSlice.reducer;

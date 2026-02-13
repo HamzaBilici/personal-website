@@ -1,33 +1,34 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  changeTheme } from "../store/actions/headerAction";
 import { getTextDataByLanguage } from "../store/actions/language-action";
 import type { AppDispatch } from "../store/store";
-import { changeLanguage, firstLandOnPage } from "../store/reducers/language-reducer";
+import { changeLanguage, firstLandOnPageLanguage } from "../store/reducers/language-reducer";
 
 import { localData } from "../assets/data";
+import { changeTheme, firstLandOnPageTheme } from "../store/reducers/theme-reducer";
 
 const toggleCheckedLabelStyle: string =
   "peer-checked:translate-x-8  peer-checked:bg-custom-yellow";
 
-const fontSetup: string =
-  "font-inter font-bold text-base leading-none tracking-wider text-custom-gray";
 
 const transition: string = "transition-all duration-600";
 
 const Header = () => {
   const dispatch = useDispatch<AppDispatch>();
-    useEffect(() => {
+
+
+    useEffect(() => {/**when user gets in page they get their default localstorage values */
       console.log('first land')
-      dispatch(firstLandOnPage());
+      dispatch(firstLandOnPageLanguage());
+      dispatch(firstLandOnPageTheme());
   }, []);
 
 
-
+const theme = useSelector((state: any) => state.theme.theme);
   const language = useSelector((state: any) => state.language.language);
     const {skills,hireMe,projects} = useSelector((state: any) => state.language?.languageData?.nav || localData[language==='en'?'en':'tr'].nav);/*Right side of the || operator is there in case of api with the daily limited usage runs out of usage*/
 
- // const theme = useSelector((state: any) => state.header.theme);
+  
 
   useEffect(() => {
    /* const localLanguage = localStorage.getItem("language");
@@ -72,7 +73,7 @@ const Header = () => {
           <div className="relative inline-block w-14 h-6">
             <input
               onChange={handleThemeChange}
-              //checked={theme === "LIGHT"}
+              checked={theme === "light"}
               id="switch-component"
               type="checkbox"
               className="peer appearance-none w-14 h-6 bg-custom-dark-gray rounded-full checked:bg-custom-purple cursor-pointer transition-colors duration-300"
@@ -90,17 +91,19 @@ const Header = () => {
           </div>
           <label
             htmlFor="switch-component"
-            className={`${fontSetup} w-28 text-right`}
+            className={`w-28 text-right font-inter font-bold text-base leading-none tracking-wider   ${theme === "light" ? " text-custom-gray" : "text-[#D9D9D9]"}`}
           >
-            {/*theme*/ "LIGHT" === "LIGHT" ? "DARK" : "LIGHT"} MODE
+            {theme === "light" ? "DARK" : "LIGHT"} MODE
           </label>
         </div>
-        <span className={`${fontSetup} content-center`}>|</span>
-        <button onClick={handleLanguageChange} className={`${fontSetup}`}>
-          <span className="text-custom-purple">
-            {language === "EN" ? "TÜRKÇE" : "INGILIZCE"}
+        <span className={`content-center font-inter font-bold text-base leading-none tracking-wider   ${theme === "light" ? " text-custom-gray" : "text-[#D9D9D9]"}`}>|</span>
+        <button onClick={handleLanguageChange} className={`font-inter font-bold text-base leading-none tracking-wider   ${theme === "light" ? " text-custom-gray" : "text-[#D9D9D9]"}`}>
+          {language === "tr" ? "SWITCH TO " : ""}
+          <span className={`${theme === "light" ? " text-custom-purple" : "text-custom-darkmode-pink"}`}>
+            {language === "en" ? "TÜRKÇE" : "ENGLISH"}
           </span>
-          `YE GEÇ
+          {language === "en" ? "`YE GEÇ" : ""}
+          
         </button>
       </section>
       <section className="bottom-nav-section flex flex-row justify-between gap-3.5">
@@ -114,7 +117,7 @@ const Header = () => {
           <button className="font-inter font-medium text-lg leading-7 tracking-normal text-gray-500">
             {projects ||" "}
           </button>
-          <button className="font-inter font-medium text-lg leading-7 tracking-normal text-indigo-800  border rounded-md py-3 px-8 -ml-5">
+          <button className="font-inter font-medium text-lg leading-7 tracking-normal text-indigo-800 bg-white border rounded-md py-3 px-8 -ml-5">
            {hireMe ||" "}
           </button>
         </div>

@@ -3,6 +3,7 @@ import ProjectCard from "./ProjectCard.tsx";
 import { localData } from "../assets/data.ts";
 
 const Projects = () => {
+const theme = useSelector((state: any) => state.theme.theme);
   const language = useSelector((state: any) => state.language.language);
   const { title, list } = useSelector(
     (state: any) =>
@@ -17,7 +18,7 @@ const Projects = () => {
   return (
     <>
       <section className="profile-section mt-10.5 flex flex-col gap-9.5 border-t border-[#BAB2E7] mb-34.75">
-        <h3 className="font-inter font-semibold text-5xl leading-12 tracking-normal text-[#1F2937] mt-9.5">
+           <h3 className={`font-inter font-semibold text-5xl leading-12 tracking-normal mt-9.5  ${theme==='light'?" text-[#1F2937]":" text-[#AEBCCF]"}`}>
           {title || ""}
         </h3>
         <div className="flex flex-row flex-wrap gap-29.5">

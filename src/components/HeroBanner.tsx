@@ -3,6 +3,7 @@ import Banner from "../assets/hero-banner.png";
 import { localData } from "../assets/data";
 
 const HeroBanner = () => {
+  const theme = useSelector((state: any) => state.theme.theme);
   const language = useSelector((state: any) => state.language.language);
   const { name, title, description, buttons } = useSelector(
     (state: any) =>
@@ -16,26 +17,38 @@ const HeroBanner = () => {
       <section className="hero-banner-section flex flex-row justify-between items-center mt-22">
         <div className="left-area flex flex-col gap-10 max-w-149">
           <div className="flex flex-row items-center gap-2.5">
-            <hr className="w-24 border border-indigo-800" />
-            <span className="font-inter font-medium text-xl leading-7 tracking-normal text-indigo-700">
+            <hr
+              className={`w-24 border  ${theme === "light" ? "border-indigo-800" : "border-custom-darkmode-pink"}`}
+            />
+            <span
+              className={`font-inter font-medium text-xl leading-7 tracking-normal ${theme === "light" ? " text-indigo-700" : "text-custom-darkmode-pink"}`}
+            >
               {name || " "}
             </span>
           </div>
-          <div className="font-inter font-bold text-7xl leading-18 tracking-normal text-gray-800">
+          <div
+            className={`font-inter font-bold text-7xl leading-18 tracking-normal  ${theme === "light" ? " text-gray-800" : "text-[#AEBCCF]"}`}
+          >
             {title || " "}
           </div>
-          <p className="font-inter font-normal text-lg leading-7 tracking-normal text-gray-500">
+          <p
+            className={`font-inter font-normal text-lg leading-7 tracking-normal  ${theme === "light" ? " text-gray-500" : "text-white"}`}
+          >
             {description || " "}
           </p>
           <div className="flex flex-row gap-3">
-            <button className="font-inter font-medium text-lg leading-7 tracking-normal text-white bg-indigo-800 py-3 px-8 rounded-md">
+            <button
+              className={`font-inter font-medium text-lg leading-7 tracking-normal  py-3 px-8 rounded-md  ${theme === "light" ? "text-white bg-indigo-800" : "text-black bg-[#E1E1FF]"}`}
+            >
               {hire || " "}
             </button>
-            <button className="font-inter font-medium text-lg leading-7 tracking-normal text-indigo-800 bg-white py-3 px-8 border border-indigo-800 rounded-md">
+            <button
+              className={`font-inter font-medium text-lg leading-7 tracking-normal py-3 px-8 border  rounded-md  ${theme === "light" ? "border-indigo-800  text-indigo-800  bg-white" : "bg-[#383838] text-[#E1E1FF] border-[#E1E1FF]"}`}
+            >
               {github || " "}
             </button>
-            <button className="font-inter font-medium text-lg leading-7 tracking-normal text-indigo-800 bg-white py-3 px-8 border border-indigo-800 rounded-md">
-              {linkedin || " "}
+            <button  className={`font-inter font-medium text-lg leading-7 tracking-normal py-3 px-8 border  rounded-md  ${theme === "light" ? "border-indigo-800  text-indigo-800  bg-white" : "bg-[#383838] text-[#E1E1FF] border-[#E1E1FF]"}`}
+            >{linkedin || " "}
             </button>
           </div>
         </div>
