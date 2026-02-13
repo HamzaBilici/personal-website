@@ -5,7 +5,7 @@ const theme = useSelector((state: any) => state.theme.theme);
   const { title, desc, tags, links } = props?.item || "";
   return (
     <>
-      <div className="max-w-75 flex flex-col gap-4.5">
+      <div className="max-w-75 flex flex-col gap-4.5 overflow-hidden">
         <header className={`font-inter font-medium text-3xl leading-7 tracking-normal flex flex-col gap-4.5 ${theme==='light'?" text-indigo-700":"text-[#CFCBFF]"}`}>
           <img
             src="https://i.sstatic.net/y9DpT.jpg"
@@ -14,7 +14,7 @@ const theme = useSelector((state: any) => state.theme.theme);
           />
           {title || ""}
         </header>
-        <p className="font-inter font-normal text-sm leading-tight tracking-normal text-gray-500">
+        <p className="h-26.25 overflow-hidden font-inter font-normal text-sm leading-tight tracking-normal text-gray-500">
           {desc}
         </p>
         <div className="flex flex-row flex-wrap gap-1.5">

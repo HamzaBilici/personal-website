@@ -12,9 +12,8 @@ function App() {
   
 const theme = useSelector((state: any) => state.theme.theme);
   return (
-    <>
-      <div className={`min-h-screen min-w-screen flex flex-col items-center  ${theme==='light'?"bg-white":"bg-[#252128]"}`}>
-        <div className={`max-w-6xl w-full `}>
+      <div className={`min-h-screen w-full max-w-screen flex flex-col items-center overflow-x-hidden   ${theme==='light'?"bg-white":"bg-[#252128]"}`}>
+        <div className={`max-w-6xl w-full  max-xl:max-w-95/100`}>
           <Header />
           <HeroBanner />
           <Skills />
@@ -22,9 +21,8 @@ const theme = useSelector((state: any) => state.theme.theme);
           <Projects />
         </div>
         <Footer />
-      </div>
       <ToastContainer/>
-    </>
+      </div>
   );
 }
 

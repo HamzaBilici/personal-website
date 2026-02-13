@@ -17,11 +17,11 @@ const theme = useSelector((state: any) => state.theme.theme);
 
   return (
     <>
-      <section className="projects-section mt-10.5 flex flex-col gap-9.5 border-t border-[#BAB2E7] mb-34.75">
+      <section className="projects-section mt-10.5 flex flex-col gap-9.5 border-t border-[#BAB2E7] mb-34.75  overflow-x-hidden">
            <h3 className={`font-inter font-semibold text-5xl leading-12 tracking-normal mt-9.5  ${theme==='light'?" text-[#1F2937]":" text-[#AEBCCF]"}`}>
           {title || ""}
         </h3>
-        <div className="flex flex-row flex-wrap gap-29.5">
+        <div className="flex flex-row flex-wrap gap-29.5 max-xl:gap-9 max-[769px]:justify-center">
           {ProjectCardsList}
         </div>
       </section>

@@ -28,7 +28,7 @@ const theme = useSelector((state: any) => state.theme.theme);
         <h3 className={`font-inter font-semibold text-5xl leading-12 tracking-normal   ${theme==='light'?" text-[#1F2937]":" text-[#AEBCCF]"}`}>
           {title || ""}
         </h3>
-        <div className="flex flex-row flex-wrap gap-30 justify-center ">
+        <div className="flex flex-row flex-wrap gap-30 max-xl:gap-9 max-[769px]:justify-center">
           {skillsElements}
         </div>
       </section>

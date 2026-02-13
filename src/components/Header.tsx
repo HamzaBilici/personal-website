@@ -34,45 +34,21 @@ const Header = () => {
     (state: any) =>
       state.language?.languageData?.nav ||
       localData[language === "en" ? "en" : "tr"].nav,
-  ); /*Right side of the || operator is there in case of api with the daily limited usage runs out of usage*/
+  ); /*Right side of the || operator is there in case of api key with the daily limited usage runs out of usage*/
 
-  useEffect(() => {
-    /* const localLanguage = localStorage.getItem("language");
-    console.log(localLanguage);*/
-    dispatch(getTextDataByLanguage() as any);
-  }, [language]);
-  /*
   useEffect(() => {
     dispatch(getTextDataByLanguage() as any);
   }, [language]);
-*/
 
-  const handleThemeChange = () /*event: React.ChangeEvent<HTMLInputElement>,*/
-  : void => {
+  const handleThemeChange = (): void => {
     dispatch(changeTheme());
   };
 
   const handleLanguageChange = (): void => {
     dispatch(changeLanguage());
-
-    /*  const payload = {
-      name: "Camera",
-      price: 199,
-    };
-
-    try {
-      // 2. axios.post(url, data, config) yapısını kullanıyoruz
-      axios
-        .post("https://reqres.in/api/workintech", payload, {
-          headers: { "x-api-key": "reqres_fdb427e28b7f424e81dc5a3b7f94b91f" },
-        })
-        .then((res) => console.log(res.data));
-    } catch (error) {
-      console.error("Veri çekilirken hata oluştu:", error);
-    }*/
   };
 
-  const handleSkills = (targetElementClass: string): void => {
+  const handleScrollSlide = (targetElementClass: string): void => {
     const element = document.querySelector(targetElementClass);
     const elementBounding = element?.getBoundingClientRect() || "";
     if (elementBounding instanceof DOMRect) {
@@ -88,7 +64,7 @@ const Header = () => {
 
   return (
     <>
-      <section className="top-controll-section flex flex-row justify-end p-4 gap-3.5">
+      <section className="top-controll-section flex flex-row justify-end p-4 gap-3.5 max-md:px-1  max-md:py-8 max-md:gap-1 max-md:justify-center">
         <div className="flex flex-row items-center gap-2.5">
           <div className="relative inline-block w-14 h-6">
             <input
@@ -105,9 +81,7 @@ const Header = () => {
             <label
               htmlFor="switch-component"
               className={`absolute top-1.5 left-2.5 w-3 h-3 bg-custom-dark-gray rounded-full  shadow-sm  cursor-pointer ${transition} ${toggleCheckedLabelStyle}   opacity-100  peer-checked:opacity-0 `}
-            >
-              {/*<span className="peer absolute  left-2 rounded-full bg-custom-dark-gray "></span>*/}
-            </label>
+            ></label>
           </div>
           <label
             htmlFor="switch-component"
@@ -139,22 +113,22 @@ const Header = () => {
         <div className="w-16 h-16 rounded-full overflow-hidden">
           <img src="https://www.wolflair.com/wp-content/uploads/2017/01/placeholder.jpg" />
         </div>
-        <div className="flex flex-row items-center gap-20">
+        <div className="flex flex-row items-center gap-20 max-md:gap-10">
           <button
-            onClick={() => handleSkills(".skills-section")}
+            onClick={() => handleScrollSlide(".skills-section")}
             className="font-inter font-medium text-lg leading-7 tracking-normal text-gray-500"
           >
             {skills || " "}
           </button>
           <button
-            onClick={() => handleSkills(".projects-section")}
+            onClick={() => handleScrollSlide(".projects-section")}
             className="font-inter font-medium text-lg leading-7 tracking-normal text-gray-500"
           >
             {projects || " "}
           </button>
           <button
-            onClick={() => handleSkills("footer")}
-            className="font-inter font-medium text-lg leading-7 tracking-normal text-indigo-800 bg-white border rounded-md py-3 px-8 -ml-5"
+            onClick={() => handleScrollSlide("footer")}
+            className="font-inter font-medium text-lg leading-7 tracking-normal text-indigo-800 bg-white border rounded-md py-3 px-8 -ml-5 max-md:px-1.5 max-md:py-1.5"
           >
             {hireMe || " "}
           </button>
@@ -165,15 +139,3 @@ const Header = () => {
 };
 
 export default Header;
-/**
-font-family: Inter;
-font-weight: 500;
-font-size: 18px;
-leading-trim: NONE;
-line-height: 28px;
-letter-spacing: 0%;
-
-
-
-
-*/

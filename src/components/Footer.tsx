@@ -13,9 +13,9 @@ const Footer = () => {
   return (
     <>
       <footer
-        className={`${theme === "light" ? "bg-[#F9F9F9]" : "bg-black"}  w-full max-w-360 h-102.25`}
+        className={`${theme === "light" ? "bg-[#F9F9F9]" : "bg-black"}  w-full max-w-360 h-102.25 `}
       >
-        <div className="max-w-6xl w-full flex flex-col items-center justify-self-center gap-34.75">
+        <div className="max-w-6xl max-[769px]:max-w-95/100 w-full flex flex-col items-center justify-self-center gap-34.75 max-sm:gap-15">
           <div className="w-full  ">
             <h3
               className={`font-inter font-semibold text-[42px] leading-tight tracking-normal  max-w-127.5 mt-21.25  ${theme === "light" ? " text-[#1F2937]" : " text-[#AEBCCF]"}`}
@@ -23,7 +23,7 @@ const Footer = () => {
               {title || ""}
             </h3>
           </div>
-          <div className="flex flex-row justify-between w-full">
+          <div className="flex flex-row justify-between w-full max-sm:flex-wrap max-sm:justify-center max-sm:gap-3">
             <span>
               👉{" "}
               <span
@@ -32,7 +32,7 @@ const Footer = () => {
                 {email || ""}
               </span>
             </span>
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-row gap-5 ">
               <span
                 className={`font-inter font-medium text-lg leading-normal tracking-tight   ${theme === "light" ? " text-[#0A0A14]" : " text-[#E1E1FF]"}`}
               >
