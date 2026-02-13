@@ -17,7 +17,7 @@ const theme = useSelector((state: any) => state.theme.theme);
 
   return (
     <>
-      <section className="profile-section mt-10.5 flex flex-col gap-9.5 border-t border-[#BAB2E7] mb-34.75">
+      <section className="projects-section mt-10.5 flex flex-col gap-9.5 border-t border-[#BAB2E7] mb-34.75">
            <h3 className={`font-inter font-semibold text-5xl leading-12 tracking-normal mt-9.5  ${theme==='light'?" text-[#1F2937]":" text-[#AEBCCF]"}`}>
           {title || ""}
         </h3>

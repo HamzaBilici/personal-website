@@ -2,45 +2,51 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTextDataByLanguage } from "../store/actions/language-action";
 import type { AppDispatch } from "../store/store";
-import { changeLanguage, firstLandOnPageLanguage } from "../store/reducers/language-reducer";
+import {
+  changeLanguage,
+  firstLandOnPageLanguage,
+} from "../store/reducers/language-reducer";
 
 import { localData } from "../assets/data";
-import { changeTheme, firstLandOnPageTheme } from "../store/reducers/theme-reducer";
+import {
+  changeTheme,
+  firstLandOnPageTheme,
+} from "../store/reducers/theme-reducer";
 
 const toggleCheckedLabelStyle: string =
   "peer-checked:translate-x-8  peer-checked:bg-custom-yellow";
-
 
 const transition: string = "transition-all duration-600";
 
 const Header = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-
-    useEffect(() => {/**when user gets in page they get their default localstorage values */
-      console.log('first land')
-      dispatch(firstLandOnPageLanguage());
-      dispatch(firstLandOnPageTheme());
+  useEffect(() => {
+    /**when user gets in page they get their default localstorage values */
+    console.log("first land");
+    dispatch(firstLandOnPageLanguage());
+    dispatch(firstLandOnPageTheme());
   }, []);
 
-
-const theme = useSelector((state: any) => state.theme.theme);
+  const theme = useSelector((state: any) => state.theme.theme);
   const language = useSelector((state: any) => state.language.language);
-    const {skills,hireMe,projects} = useSelector((state: any) => state.language?.languageData?.nav || localData[language==='en'?'en':'tr'].nav);/*Right side of the || operator is there in case of api with the daily limited usage runs out of usage*/
-
-  
+  const { skills, hireMe, projects } = useSelector(
+    (state: any) =>
+      state.language?.languageData?.nav ||
+      localData[language === "en" ? "en" : "tr"].nav,
+  ); /*Right side of the || operator is there in case of api with the daily limited usage runs out of usage*/
 
   useEffect(() => {
-   /* const localLanguage = localStorage.getItem("language");
+    /* const localLanguage = localStorage.getItem("language");
     console.log(localLanguage);*/
-     dispatch(getTextDataByLanguage() as any);
+    dispatch(getTextDataByLanguage() as any);
   }, [language]);
-/*
+  /*
   useEffect(() => {
     dispatch(getTextDataByLanguage() as any);
   }, [language]);
 */
-  
+
   const handleThemeChange = () /*event: React.ChangeEvent<HTMLInputElement>,*/
   : void => {
     dispatch(changeTheme());
@@ -64,6 +70,20 @@ const theme = useSelector((state: any) => state.theme.theme);
     } catch (error) {
       console.error("Veri çekilirken hata oluştu:", error);
     }*/
+  };
+
+  const handleSkills = (targetElementClass: string): void => {
+    const element = document.querySelector(targetElementClass);
+    const elementBounding = element?.getBoundingClientRect() || "";
+    if (elementBounding instanceof DOMRect) {
+      console.log(elementBounding.top);
+
+      window.scroll({
+        top: elementBounding.top,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -96,29 +116,47 @@ const theme = useSelector((state: any) => state.theme.theme);
             {theme === "light" ? "DARK" : "LIGHT"} MODE
           </label>
         </div>
-        <span className={`content-center font-inter font-bold text-base leading-none tracking-wider   ${theme === "light" ? " text-custom-gray" : "text-[#D9D9D9]"}`}>|</span>
-        <button onClick={handleLanguageChange} className={`font-inter font-bold text-base leading-none tracking-wider   ${theme === "light" ? " text-custom-gray" : "text-[#D9D9D9]"}`}>
+        <span
+          className={`content-center font-inter font-bold text-base leading-none tracking-wider   ${theme === "light" ? " text-custom-gray" : "text-[#D9D9D9]"}`}
+        >
+          |
+        </span>
+        <button
+          onClick={handleLanguageChange}
+          className={`font-inter font-bold text-base leading-none tracking-wider   ${theme === "light" ? " text-custom-gray" : "text-[#D9D9D9]"}`}
+        >
           {language === "tr" ? "SWITCH TO " : ""}
-          <span className={`${theme === "light" ? " text-custom-purple" : "text-custom-darkmode-pink"}`}>
+          <span
+            className={`${theme === "light" ? " text-custom-purple" : "text-custom-darkmode-pink"}`}
+          >
             {language === "en" ? "TÜRKÇE" : "ENGLISH"}
           </span>
           {language === "en" ? "`YE GEÇ" : ""}
-          
         </button>
       </section>
+
       <section className="bottom-nav-section flex flex-row justify-between gap-3.5">
         <div className="w-16 h-16 rounded-full overflow-hidden">
           <img src="https://www.wolflair.com/wp-content/uploads/2017/01/placeholder.jpg" />
         </div>
         <div className="flex flex-row items-center gap-20">
-          <button className="font-inter font-medium text-lg leading-7 tracking-normal text-gray-500">
-            {skills ||" "}
+          <button
+            onClick={() => handleSkills(".skills-section")}
+            className="font-inter font-medium text-lg leading-7 tracking-normal text-gray-500"
+          >
+            {skills || " "}
           </button>
-          <button className="font-inter font-medium text-lg leading-7 tracking-normal text-gray-500">
-            {projects ||" "}
+          <button
+            onClick={() => handleSkills(".projects-section")}
+            className="font-inter font-medium text-lg leading-7 tracking-normal text-gray-500"
+          >
+            {projects || " "}
           </button>
-          <button className="font-inter font-medium text-lg leading-7 tracking-normal text-indigo-800 bg-white border rounded-md py-3 px-8 -ml-5">
-           {hireMe ||" "}
+          <button
+            onClick={() => handleSkills("footer")}
+            className="font-inter font-medium text-lg leading-7 tracking-normal text-indigo-800 bg-white border rounded-md py-3 px-8 -ml-5"
+          >
+            {hireMe || " "}
           </button>
         </div>
       </section>
