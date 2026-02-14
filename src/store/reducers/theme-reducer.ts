@@ -17,7 +17,7 @@ const themeSlice = createSlice({
       const targetTheme = state.theme !== "light" ? "light" : "dark";
       console.log(targetTheme);
       state.theme = targetTheme;
-      if( toast(targetTheme==='light'?"Light Mode":"Dark Mode"))
+      toast(targetTheme==='light'?"Light Mode":"Dark Mode")
       localStorage.setItem("theme", targetTheme);
     },
     firstLandOnPageTheme(state) {

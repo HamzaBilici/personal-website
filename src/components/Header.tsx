@@ -84,6 +84,7 @@ const Header = () => {
             ></label>
           </div>
           <label
+          data-cy="theme"
             htmlFor="switch-component"
             className={`w-28 text-right font-inter font-bold text-base leading-none tracking-wider   ${theme === "light" ? " text-custom-gray" : "text-[#D9D9D9]"}`}
           >
@@ -96,6 +97,7 @@ const Header = () => {
           |
         </span>
         <button
+        data-cy="language"
           onClick={handleLanguageChange}
           className={`font-inter font-bold text-base leading-none tracking-wider   ${theme === "light" ? " text-custom-gray" : "text-[#D9D9D9]"}`}
         >
@@ -113,7 +115,7 @@ const Header = () => {
         <div className="w-16 h-16 rounded-full overflow-hidden">
           <img src="https://www.wolflair.com/wp-content/uploads/2017/01/placeholder.jpg" />
         </div>
-        <div className="flex flex-row items-center gap-20 max-md:gap-10">
+        <nav className="flex flex-row items-center gap-20 max-md:gap-10">
           <button
             onClick={() => handleScrollSlide(".skills-section")}
             className="font-inter font-medium text-lg leading-7 tracking-normal text-gray-500"
@@ -132,7 +134,7 @@ const Header = () => {
           >
             {hireMe || " "}
           </button>
-        </div>
+        </nav>
       </section>
     </>
   );

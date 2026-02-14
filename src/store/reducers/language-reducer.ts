@@ -20,7 +20,7 @@ const languageSlice = createSlice({
       const targetLanguage = state.language === "en" ? "tr" : "en";
       console.log(targetLanguage);
       state.language = targetLanguage;
-      if( toast(targetLanguage==='tr'?"Türkçeye geçiliyor":"Switching to English"))
+       toast(targetLanguage==='tr'?"Türkçeye geçiliyor":"Switching to English" )
       localStorage.setItem("language", targetLanguage);
     },
     firstLandOnPageLanguage(state) {

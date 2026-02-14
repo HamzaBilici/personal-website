@@ -27,7 +27,7 @@ const HeroBanner = () => {
             </span>
           </div>
           <div
-            className={`font-inter font-bold text-7xl leading-18 tracking-normal max-[769px]:text-center max-sm:text-5xl max-sm:leading-13  ${theme === "light" ? " text-gray-800" : "text-[#AEBCCF]"}`}
+            className={`font-inter font-bold text-7xl leading-18 tracking-normal max-xl:text-6xl max-[769px]:text-center max-sm:text-5xl max-sm:leading-13  ${theme === "light" ? " text-gray-800" : "text-[#AEBCCF]"}`}
           >
             {title || " "}
           </div>

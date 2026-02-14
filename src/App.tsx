@@ -21,7 +21,7 @@ const theme = useSelector((state: any) => state.theme.theme);
           <Projects />
         </div>
         <Footer />
-      <ToastContainer/>
+      <ToastContainer data-cy="toast"/>
       </div>
   );
 }
