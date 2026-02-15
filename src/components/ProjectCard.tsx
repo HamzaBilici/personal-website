@@ -8,7 +8,7 @@ const theme = useSelector((state: any) => state.theme.theme);
       <div className="max-w-75 flex flex-col gap-4.5 overflow-hidden">
         <header className={`font-inter font-medium text-3xl leading-7 tracking-normal flex flex-col gap-4.5 ${theme==='light'?" text-indigo-700":"text-[#CFCBFF]"}`}>
           <img
-            src="https://i.sstatic.net/y9DpT.jpg"
+            src={`https://fikrirasyid.com/wp-content/uploads/2016/10/placeholder-landscape-4-3-56406_1080x675.jpg`}
             alt=""
             className="self-center max-w-none w-fit h-45"
           />
