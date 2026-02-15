@@ -4,7 +4,7 @@ import { localData } from "../assets/data";
 const Footer = () => {
   const theme = useSelector((state: any) => state.theme.theme);
   const language = useSelector((state: any) => state.language.language);
-  const { title, email, links } = useSelector(
+  const { title, email } = useSelector(
     (state: any) =>
       state.language?.languageData?.footer ||
       localData[language === "en" ? "en" : "tr"].footer,
