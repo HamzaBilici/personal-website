@@ -1,3 +1,6 @@
+import Pizza from "./pizza.png";
+import Form from "./form.png";
+import Personal from "./personal.png";
 export const localData = {
   en: {
     currentLanguage: 'en',
@@ -9,9 +12,9 @@ export const localData = {
       langSwitch: "TÜRKÇE'YE GEÇ"
     },
     hero: {
-      name: "Almila Su",
+      name: "Hamza Bilici",
       title: "Creative thinker Minimalism lover",
-      description: "Hi, I’m Almila. I’m a full-stack developer. If you are looking for a Developer who to craft solid and scalable frontend products with great user experiences. Let’s shake hands with me.",
+      description: "Hi, I’m Hamza. I’m a full-stack developer. If you are looking for a Developer who to craft solid and scalable frontend products with great user experiences. Let’s shake hands with me.",
       buttons: {
         hire: "Hire me",
         github: "Github",
@@ -40,10 +43,10 @@ export const localData = {
       basicInfo: {
         title: "Profile",
         info: [
-          { label: "Birth Date", value: "24.03.1996" },
-          { label: "City", value: "Ankara" },
-          { label: "Education", value: "Hacettepe Ünv. Biology" },
-           { label: "", value: "License, 2016" },
+          { label: "Birth Date", value: "18.04.1998" },
+          { label: "City", value: "Istanbul" },
+          { label: "Education", value: "Sakarya Ünv. Computer Science" },
+           { label: "", value: "License, 2020" },
           { label: "Preferred Role", value: "Frontend, UI" }
         ]
       },
@@ -58,46 +61,46 @@ export const localData = {
       list: [
         {
           id: 1,
-          title: "Workintech",
-          desc: "A simple, customizable, minimal setup cookie plugin that allows your users to select which cookies to accept or decline. This was created with vanilla JS, SCSS and Parcel Bundler and is available as a NPM package and the git repository makes any type of customization to code and themes possible.",
-          tags: ["react", "redux", "axios"],
+          title: "Pizza Challenge",
+          desc: "Pixel perfect design challage acording to figma design",
+          tags: ["react", "html", "css"],
           links: {
-            repo: "Github",
-            view: "View Site"
+            repo: "https://github.com/HamzaBilici/pizza-html",
+            view: "https://pizza-html-nu.vercel.app/"
           },
-          image: "workintech-project.jpg" // Görsel ismini buraya ekleyebilirsin
+          image: Pizza
         },
         {
           id: 2,
-          title: "Random Jokes",
-          desc: "A simple, customizable, minimal setup cookie plugin that allows your users to select which cookies to accept or decline. This was created with vanilla JS, SCSS and Parcel Bundler and is available as a NPM package and the git repository makes any type of customization to code and themes possible.",
-          tags: ["react", "redux", "axios"],
+          title: "React Form",
+          desc: "In the project developed with a React-based SPA architecture; dynamic form management, page transitions with React Router, and end-to-end testing processes with Cypress have been implemented.",
+          tags: ["react",  "axios","cypress"],
           links: {
-            repo: "Github",
-            view: "View Site"
+            repo: "https://github.com/HamzaBilici/s8-challange",
+            view: "https://s8-challange.vercel.app/"
           },
-          image: "random-jokes-project.jpg"
+          image: Form
         },
         {
           id: 3,
-          title: "Journey",
+          title: "Personel Website",
           desc: "A simple, customizable, minimal setup cookie plugin that allows your users to select which cookies to accept or decline. This was created with vanilla JS, SCSS and Parcel Bundler and is available as a NPM package and the git repository makes any type of customization to code and themes possible.",
           tags: ["react", "redux", "axios"],
           links: {
-            repo: "Github",
-            view: "View Site"
+            repo: "https://github.com/HamzaBilici/personal-website",
+            view: "https://personal-website-3iav.vercel.app/"
           },
-          image: "journey-project.jpg"
+          image: Personal
         }
       ]
     },
     footer: {
       title: "Let’s work together on your next product.",
-      email: "almilasucode@gmail.com",
+      email: "hamzablc98@gmail.com",
       links: [
-        { name: "Personal Blog", url: "#" },
-        { name: "Github", url: "#" },
-        { name: "Linkedin", url: "#" }
+        { name: "Personal Blog", url: "https://personal-website-3iav.vercel.app/" },
+        { name: "Github", url: "https://github.com/HamzaBilici" },
+        { name: "Linkedin", url: "https://www.linkedin.com/feed/" }
       ]
     }
   },
@@ -111,9 +114,9 @@ export const localData = {
       langSwitch: "SWITCH TO ENGLISH"
     },
     hero: {
-      name: "Almila Su",
+      name: "Hamza Bilici",
       title: "Yaratıcı düşünür Minimalizm aşığı",
-      description: "Merhaba, ben Almila. Full-stack geliştiriciyim. Harika kullanıcı deneyimlerine sahip, sağlam ve ölçeklenebilir frontend ürünleri hazırlayacak bir Geliştirici arıyorsanız, haydi tanışalım.",
+      description: "Merhaba, ben Hamza. Full-stack geliştiriciyim. Harika kullanıcı deneyimlerine sahip, sağlam ve ölçeklenebilir frontend ürünleri hazırlayacak bir Geliştirici arıyorsanız, haydi tanışalım.",
       buttons: {
         hire: "Beni İşe Al",
         github: "Github",
@@ -142,10 +145,10 @@ export const localData = {
       basicInfo: {
         title: "Profil",
         info: [
-          { label: "Doğum Tarihi", value: "24.03.1996" },
-          { label: "İkamet Şehri", value: "Ankara" },
-          { label: "Eğitim Durumu", value: "Hacettepe Ünv. Biyoloji" },
-          { label: "", value: "Lisans, 2016" },
+          { label: "Doğum Tarihi", value: "18.04.1998" },
+          { label: "İkamet Şehri", value: "İstanbul" },
+          { label: "Eğitim Durumu", value: "Hacettepe Ünv. Bilgisayar Müh." },
+          { label: "", value: "Lisans, 2020" },
           { label: "Tercih Ettiği Rol", value: "Frontend, UI" }
         ]
       },
@@ -160,25 +163,25 @@ export const localData = {
       list: [
         {
           id: 1,
-          title: "Workintech",
-          desc: "Kullanıcılarınızın hangi çerezleri kabul edip etmeyeceğini seçmelerine olanak tanıyan basit, özelleştirilebilir, minimal kurulumlu bir çerez eklentisi. Vanilla JS, SCSS ve Parcel Bundler ile oluşturuldu ve bir NPM paketi olarak mevcuttur.",
-          tags: ["react", "redux", "axios"],
+          title: "Pizza Challenge",
+          desc: "Figma tasarımına bağlı kalacak şekilde pixel-perfect tasarım projesi",
+          tags: ["react", "html", "css"],
           links: {
-            repo: "Github",
-            view: "Siteye Git"
+            repo: "https://github.com/HamzaBilici/pizza-html",
+            view: "https://pizza-html-nu.vercel.app/"
           },
-          image: "workintech-project.jpg"
+          image: Pizza
         },
         {
           id: 2,
-          title: "Random Jokes",
-          desc: "Kullanıcılarınızın hangi çerezleri kabul edip etmeyeceğini seçmelerine olanak tanıyan basit, özelleştirilebilir, minimal kurulumlu bir çerez eklentisi. Vanilla JS, SCSS ve Parcel Bundler ile oluşturuldu.",
-          tags: ["react", "redux", "axios"],
+          title: "React Form",
+          desc: "React tabanlı SPA mimarisiyle hazırlanan projede; dinamik form yönetimi, React Router ile sayfa geçişleri ve Cypress ile uçtan uca test süreçleri uygulanmıştır",
+          tags: ["react",  "axios","cypress"],
           links: {
-            repo: "Github",
-            view: "Siteye Git"
+            repo: "https://github.com/HamzaBilici/s8-challange",
+            view: "https://s8-challange.vercel.app/"
           },
-          image: "random-jokes-project.jpg"
+          image: Form
         },
         {
           id: 3,
@@ -186,20 +189,20 @@ export const localData = {
           desc: "Kullanıcılarınızın hangi çerezleri kabul edip etmeyeceğini seçmelerine olanak tanıyan basit, özelleştirilebilir, minimal kurulumlu bir çerez eklentisi. Vanilla JS, SCSS ve Parcel Bundler ile oluşturuldu.",
           tags: ["react", "redux", "axios"],
           links: {
-            repo: "Github",
-            view: "Siteye Git"
+            repo: "https://github.com/HamzaBilici/personal-website",
+            view: "https://personal-website-3iav.vercel.app/"
           },
-          image: "journey-project.jpg"
+          image: Personal
         }
       ]
     },
     footer: {
       title: "Bir sonraki ürününüz üzerinde birlikte çalışalım.",
-      email: "almilasucode@gmail.com",
+      email: "hamzablc98@gmail.com",
       links: [
-        { name: "Kişisel Blog", url: "#" },
-        { name: "Github", url: "#" },
-        { name: "Linkedin", url: "#" }
+        { name: "Kişisel Blog", url: "https://personal-website-3iav.vercel.app/" },
+        { name: "Github", url: "https://github.com/HamzaBilici" },
+        { name: "Linkedin", url: "https://www.linkedin.com/feed/" }
       ]
     }
   }

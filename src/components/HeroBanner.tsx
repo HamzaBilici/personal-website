@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Banner from "../assets/hero-banner.png";
+import Banner from "../assets/pp.png";
 import { localData } from "../assets/data";
 
 const HeroBanner = () => {
@@ -54,7 +54,7 @@ const HeroBanner = () => {
         </div>
         <div className="right-area max-w-119  min-w-100 shadow-[0px_8px_28px_-6px_rgba(24,39,75,0.12)] overflow-hidden max-[769px]:max-w-none max-[769px]:min-w-auto">
           <img
-            className="w-full h-auto rounded-[18px] shadow-[0px_18px_88px_-4px_rgba(24,39,75,0.14)] aspect-4/3"
+            className="w-full h-auto rounded-[18px] shadow-[0px_18px_88px_-4px_rgba(24,39,75,0.14)] aspect-3/3"
             src={Banner}
           />
         </div>
